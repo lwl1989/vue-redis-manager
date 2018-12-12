@@ -79,16 +79,25 @@
           awesome-vue
         </a>
       </li>
+      <a href="#####" @click="test">test</a>
     </ul>
+    <Server ref="server"></Server>
   </div>
 </template>
 
 <script>
+import Server from './Server'
 export default {
   name: 'HelloWorld',
+  components: {Server},
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    test () {
+      console.log(this.$refs.server.getDefaultServer())
     }
   }
 }
