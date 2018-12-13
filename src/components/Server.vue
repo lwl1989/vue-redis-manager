@@ -2,7 +2,6 @@
   <div id="#app">
     <el-dialog
       :visible.sync="show_view"
-      :before-close="handleClose"
       title="提示"
       width="30%">
       <el-form ref="form" :model="server" label-width="80px">
@@ -17,8 +16,8 @@
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        <el-button @click="handleClose()">取 消</el-button>
+        <el-button type="primary" @click="handleClose()">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -34,6 +33,9 @@ export default {
     }
   },
   methods: {
+    handleClose() {
+        this.show_view = false
+    },
     show(server) {
       this.server.host = server.host
       this.server.port = server.port
