@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="#app">
     <Server ref="server"/>
   </div>
 </template>

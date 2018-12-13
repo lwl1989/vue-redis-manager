@@ -1,5 +1,5 @@
 <template>
-  <div v-show="show_view">
+  <div id="#app">
     <el-dialog
       :visible.sync="show_view"
       :before-close="handleClose"
