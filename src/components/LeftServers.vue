@@ -1,24 +1,24 @@
 <template>
-    <div>
-        <Server ref="server"></Server>
-    </div>
+  <div>
+    <Server ref="server"/>
+  </div>
 </template>
 
 <script>
 import Server from './Server'
 export default {
   name: 'LeftServers',
-  components: {Server},
-  data: function () {
+  components: { Server },
+  data: function() {
     return {
       servers: []
     }
   },
   methods: {
-    addServer (host, port, pwd) {
+    addServer(host, port, pwd) {
       this.servers.push({ host: host, port: port, pwd: pwd })
     },
-    delServer (index) {
+    delServer(index) {
       if (this.servers.length > index) {
         this.servers = this.servers.slice(0, index).concat(this.servers.slice(index + 1, this.length))
       } else {
@@ -29,11 +29,11 @@ export default {
         }
       }
     },
-    editServer (index, host, port, pwd) {
-      let server = this.get(index)
+    editServer(index, host, port, pwd) {
+      const server = this.get(index)
       this.$refs.server.show(server)
     },
-    get (index) {
+    get(index) {
       if (index > this.servers.length) {
         return this.$refs.server.getDefaultServer()
       } else {

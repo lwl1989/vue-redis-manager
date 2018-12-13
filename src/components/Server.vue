@@ -1,25 +1,49 @@
 <template>
-    <div>
-        npm i element-ui -S
-    </div>
+  <div v-show="show_view">
+    <el-dialog
+      :visible.sync="show_view"
+      :before-close="handleClose"
+      title="提示"
+      width="30%">
+      <el-form ref="form" :model="server" label-width="80px">
+        <el-form-item label="主机">
+          <el-input v-model="server.host"/>
+        </el-form-item>
+        <el-form-item label="端口">
+          <el-input v-model="server.port"/>
+        </el-form-item>
+        <el-form-item label="密码">
+          <el-input v-model="server.pwd"/>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'Server',
-  data: function () {
-    return this.getDefaultServer()
+  data: function() {
+    return {
+      server: this.getDefaultServer(),
+      show_view: false
+    }
   },
   methods: {
-    show (server) {
-      this.host = server.host
-      this.port = server.port
-      this.pwd = server.pwd
+    show(server) {
+      this.server.host = server.host
+      this.server.port = server.port
+      this.server.pwd = server.pwd
+      this.show_view = true
     },
-    save (index) {
+    save(index) {
       // todo: do ajax
     },
-    getDefaultServer () {
+    getDefaultServer() {
       return {
         host: '',
         port: '',

@@ -79,9 +79,9 @@
           awesome-vue
         </a>
       </li>
-      <a href="#####" @click="test">test</a>
+      <a href="#" @click="test">test</a>
     </ul>
-    <Server ref="server"></Server>
+    <Server ref="server"/>
   </div>
 </template>
 
@@ -89,15 +89,15 @@
 import Server from './Server'
 export default {
   name: 'HelloWorld',
-  components: {Server},
-  data () {
+  components: { Server },
+  data() {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
-    test () {
-      console.log(this.$refs.server.getDefaultServer())
+    test() {
+      this.$refs.server.show(this.$refs.server.getDefaultServer())
     }
   }
 }
