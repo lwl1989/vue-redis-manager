@@ -1,6 +1,5 @@
 <template>
     <div>
-        left menu
         <Server ref="server"></Server>
     </div>
 </template>

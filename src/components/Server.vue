@@ -1,6 +1,6 @@
 <template>
     <div>
-        left menu
+        npm i element-ui -S
     </div>
 </template>
 
